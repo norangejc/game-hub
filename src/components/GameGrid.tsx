@@ -11,7 +11,7 @@ function GameGrid() {
       {error && <Text>{error}</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        gap={10}
+        gap={3}
         justifyItems="center"
       >
         {isLoading &&

@@ -5,7 +5,7 @@ interface Props {
 }
 function GameCardContainer({ children }: Props) {
   return (
-    <Card.Root width="sm" overflow="hidden">
+    <Card.Root width="100%" overflow="hidden">
       {children}
     </Card.Root>
   );
