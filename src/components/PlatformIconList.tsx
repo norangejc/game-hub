@@ -29,11 +29,20 @@ function PlatformIconList({ platforms }: Props) {
     android: FaAndroid,
     web: BsGlobe,
   };
+
   return (
-    <HStack gap={4}>
-      {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} key={platform.id} color="gray.700" />
-      ))}
+    <HStack gap={2}>
+      {platforms.slice(0, 5).map((platform) => {
+        const IconComponent = iconMap[platform.slug];
+        if (!IconComponent) return null;
+        return (
+          <Icon
+            as={iconMap[platform.slug]}
+            key={platform.id}
+            color="gray.700"
+          />
+        );
+      })}
     </HStack>
   );
 }
