@@ -32,7 +32,7 @@ function PlatformIconList({ platforms }: Props) {
 
   return (
     <HStack gap={2}>
-      {platforms.slice(0, 5).map((platform) => {
+      {platforms.slice(0, 10).map((platform) => {
         const IconComponent = iconMap[platform.slug];
         if (!IconComponent) return null;
         return (
