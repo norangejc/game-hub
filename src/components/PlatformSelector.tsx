@@ -12,7 +12,7 @@ function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm" >
+        <Button variant="outline" size="sm" colorPalette="blue">
             
           <BsChevronDown /> {selectedPlatform?.name || "Platforms"}
         </Button>

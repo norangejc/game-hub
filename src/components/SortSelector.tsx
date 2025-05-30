@@ -18,15 +18,15 @@ function SortSelector({ onSelectSortOrder, sortOrder }: Props) {
     (order) => order.value === sortOrder
   );
   return (
-    <Menu.Root>
+    <Menu.Root >
       <Menu.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" colorPalette="purple">
           <BsChevronDown /> Order By: {currentSortOrder?.label || "Relevance"}
         </Button>
       </Menu.Trigger>
       <Portal>
         <Menu.Positioner>
-          <Menu.Content width="3xs">
+          <Menu.Content width="3xs" >
             {sortOrders.map((order) => (
               <Menu.Item
                 onClick={() => onSelectSortOrder(order.value)}
