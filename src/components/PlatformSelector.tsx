@@ -1,19 +1,19 @@
-import type { Platform } from "@/hooks/useData";
-import usePlatforms from "@/hooks/usePlatforms";
+import usePlatform from "@/hooks/usePlatform";
+import usePlatforms, { type Platform } from "@/hooks/usePlatforms";
 import { Button, Menu, Portal, SkeletonText } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
-function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
+function PlatformSelector({ onSelectPlatform, selectedPlatformId }: Props) {
   const { data: platforms, error, isLoading } = usePlatforms();
+  const selectedPlatform = usePlatform(selectedPlatformId);
   if (error) return null;
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm" colorPalette="blue">
-            
           <BsChevronDown /> {selectedPlatform?.name || "Platforms"}
         </Button>
       </Menu.Trigger>
@@ -23,7 +23,7 @@ function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
             {isLoading ? (
               <SkeletonText noOfLines={2} />
             ) : (
-              platforms.map((platform) => (
+              platforms?.results.map((platform) => (
                 <Menu.Item
                   key={platform.id}
                   value={platform.slug}
